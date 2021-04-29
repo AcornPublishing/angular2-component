@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "project-1",
+    "type": "project",
+    "deleted": false,
+    "title": "Your first project",
+    "description": "This is your first project in the task management system you're building within the context of the Angular 2 Components book.",
+    "tasks": [
+      {"position": 0, "title": "Task 1", "done": false},
+      {"position": 1, "title": "Task 2", "done": false},
+      {"position": 2, "title": "Task 3", "done": true},
+      {"position": 3, "title": "Task 4", "done": false}
+    ]
+  },
+  {
+    "_id": "project-2",
+    "type": "project",
+    "deleted": false,
+    "title": "Your second project",
+    "description": "This is your second project in the task management system you're building within the context of the Angular 2 Components book.",
+    "tasks": [
+      {"position": 0, "title": "Task A", "done": true},
+      {"position": 1, "title": "Task B", "done": true},
+      {"position": 2, "title": "Task C", "done": true},
+      {"position": 3, "title": "Task D", "done": true},
+      {"position": 4, "title": "Task E", "done": false}
+    ]
+  }
+]

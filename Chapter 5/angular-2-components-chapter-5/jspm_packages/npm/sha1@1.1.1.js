@@ -1,0 +1,1 @@
+module.exports = require("npm:sha1@1.1.1/sha1");

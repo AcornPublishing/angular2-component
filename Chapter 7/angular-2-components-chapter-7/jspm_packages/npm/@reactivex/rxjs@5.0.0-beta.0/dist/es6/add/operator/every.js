@@ -1,0 +1,7 @@
+/* */ 
+"format cjs";
+import { Observable } from '../../Observable';
+import { every } from '../../operator/every';
+Observable.prototype.every = every;
+export var _void;
+//# sourceMappingURL=every.js.map

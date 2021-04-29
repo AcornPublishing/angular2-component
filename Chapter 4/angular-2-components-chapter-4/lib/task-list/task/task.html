@@ -1,0 +1,13 @@
+<div class="task__l-box-a">
+  <ngc-checkbox [checked]="done"
+                (checked-change)="markDone($event)"></ngc-checkbox>
+</div>
+<div class="task__l-box-b">
+  <div class="task__title">
+    <ngc-editor [content]="title"
+                [show-controls]="true"
+                (edit-saved)="onEditSaved($event)"></ngc-editor>
+  </div>
+  <button class="task__delete" (click)="deleteTask()"></button>
+</div>
+<div class="task__l-box-c"></div>

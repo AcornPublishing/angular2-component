@@ -1,0 +1,1 @@
+{"version":3,"file":"ObjectUnsubscribedError.js","sourceRoot":"","sources":["../../../src/util/ObjectUnsubscribedError.ts"],"names":["ObjectUnsubscribedError","ObjectUnsubscribedError.constructor"],"mappings":"AAAA;;;GAGG;AACH,6CAA6C,KAAK;IAChDA;QACEC,MAAMA,qBAAqBA,CAACA,CAACA;QAC7BA,IAAIA,CAACA,IAAIA,GAAGA,yBAAyBA,CAACA;IACxCA,CAACA;AACHD,CAACA;AAAA"}

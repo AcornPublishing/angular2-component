@@ -1,0 +1,51 @@
+{
+  "name": "angular-2-components",
+  "version": "1.0.0",
+  "description": "Code for the Angular 2 Components Book",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gionkunz/angular-2-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gionkunz/angular-2-components/issues"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "components"
+  ],
+  "author": "Gion Kunz",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "cssnano": "^3.3.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-sass": "^2.0.4",
+    "jspm": "^0.16.2"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular2": "npm:angular2@2.0.0-beta.0",
+      "es6-shim": "github:es-shims/es6-shim@0.34.0",
+      "moment": "npm:moment@2.10.6",
+      "pouchdb": "github:pouchdb/pouchdb@5.1.0",
+      "reflect-metadata": "npm:reflect-metadata@0.1.2",
+      "rxjs": "npm:rxjs@5.0.0-beta.0",
+      "sanitize-html": "npm:sanitize-html@1.11.2",
+      "zone.js": "npm:zone.js@0.5.10"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4",
+      "text": "github:systemjs/plugin-text@^0.0.2",
+      "typescript": "npm:typescript@1.7.5"
+    }
+  }
+}

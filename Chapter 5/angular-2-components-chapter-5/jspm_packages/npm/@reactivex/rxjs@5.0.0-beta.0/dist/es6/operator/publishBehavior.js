@@ -1,0 +1,8 @@
+/* */ 
+"format cjs";
+import { BehaviorSubject } from '../subject/BehaviorSubject';
+import { multicast } from './multicast';
+export function publishBehavior(value) {
+    return multicast.call(this, new BehaviorSubject(value));
+}
+//# sourceMappingURL=publishBehavior.js.map

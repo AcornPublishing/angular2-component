@@ -1,0 +1,107 @@
+import {Operator} from '../Operator';
+import {Subscriber} from '../Subscriber';
+import {Observable} from '../Observable';
+import {Subject} from '../Subject';
+import {Subscription} from '../Subscription';
+
+import {tryCatch} from '../util/tryCatch';
+import {errorObject} from '../util/errorObject';
+
+export function windowWhen<T>(closingSelector: () => Observable<any>): Observable<Observable<T>> {
+  return this.lift(new WindowOperator(closingSelector));
+}
+
+class WindowOperator<T, R> implements Operator<T, R> {
+
+  constructor(private closingSelector: () => Observable<any>) {
+  }
+
+  call(subscriber: Subscriber<Observable<T>>): Subscriber<T> {
+    return new WindowSubscriber(subscriber, this.closingSelector);
+  }
+}
+
+class WindowSubscriber<T> extends Subscriber<T> {
+  private window: Subject<T>;
+  private closingNotification: Subscription<any>;
+
+  constructor(protected destination: Subscriber<Observable<T>>,
+              private closingSelector: () => Observable<any>) {
+    super(destination);
+    this.openWindow();
+  }
+
+  _next(value: T) {
+    this.window.next(value);
+  }
+
+  _error(err: any) {
+    this.window.error(err);
+    this.destination.error(err);
+    this._unsubscribeClosingNotification();
+  }
+
+  _complete() {
+    this.window.complete();
+    this.destination.complete();
+    this._unsubscribeClosingNotification();
+  }
+
+  unsubscribe() {
+    super.unsubscribe();
+    this._unsubscribeClosingNotification();
+  }
+
+  _unsubscribeClosingNotification() {
+    let closingNotification = this.closingNotification;
+    if (closingNotification) {
+      closingNotification.unsubscribe();
+    }
+  }
+
+  openWindow() {
+    const prevClosingNotification = this.closingNotification;
+    if (prevClosingNotification) {
+      this.remove(prevClosingNotification);
+      prevClosingNotification.unsubscribe();
+    }
+
+    const prevWindow = this.window;
+    if (prevWindow) {
+      prevWindow.complete();
+    }
+
+    const window = this.window = new Subject<T>();
+    this.destination.next(window);
+
+    const closingNotifier = tryCatch(this.closingSelector)();
+    if (closingNotifier === errorObject) {
+      const err = closingNotifier.e;
+      this.destination.error(err);
+      this.window.error(err);
+    } else {
+      const closingNotification = this.closingNotification = new Subscription();
+      closingNotification.add(closingNotifier._subscribe(new WindowClosingNotifierSubscriber(this)));
+      this.add(closingNotification);
+      this.add(window);
+    }
+  }
+}
+
+class WindowClosingNotifierSubscriber<T> extends Subscriber<T> {
+  constructor(private parent: WindowSubscriber<any>) {
+    super(null);
+  }
+
+  _next() {
+    this.parent.openWindow();
+  }
+
+  _error(err) {
+    this.parent.error(err);
+  }
+
+  _complete() {
+    this.parent.openWindow();
+  }
+}

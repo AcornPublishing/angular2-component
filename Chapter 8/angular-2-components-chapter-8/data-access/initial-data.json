@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "project-1",
+    "type": "project",
+    "deleted": false,
+    "title": "Your first project",
+    "description": "This is your first project in the task management system you're building within the context of the Angular 2 Components book.",
+    "tasks": [
+      {"type": "task", "nr": 1, "position": 0, "title": "Task 1", "done": false, "created": 1451606400000, "efforts": {
+        "estimated": 86400000,
+        "effective": 0
+      }},
+      {"type": "task", "nr": 2, "position": 1, "title": "Task 2", "done": false, "created": 1451606400000, "efforts": {
+        "estimated": 259200000,
+        "effective": 0
+      }},
+      {"type": "task", "nr": 3, "position": 2, "title": "Task 3", "done": true, "created": 1451606400000, "efforts": {
+        "estimated": 129600000,
+        "effective": 129600000
+      }},
+      {"type": "task", "nr": 4, "position": 3, "title": "Task 4", "done": false, "created": 1451606400000}
+    ]
+  },
+  {
+    "_id": "project-2",
+    "type": "project",
+    "deleted": false,
+    "title": "Your second project",
+    "description": "This is your second project in the task management system you're building within the context of the Angular 2 Components book.",
+    "tasks": [
+      {"type": "task", "nr": 1, "position": 0, "title": "Task A", "done": true, "created": 1451606400000},
+      {"type": "task", "nr": 2, "position": 1, "title": "Task B", "done": true, "created": 1451606400000},
+      {"type": "task", "nr": 3, "position": 2, "title": "Task C", "done": true, "created": 1451606400000},
+      {"type": "task", "nr": 4, "position": 3, "title": "Task D", "done": true, "created": 1451606400000},
+      {"type": "task", "nr": 5, "position": 4, "title": "Task E", "done": false, "created": 1451606400000}
+    ]
+  }
+]

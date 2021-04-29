@@ -1,0 +1,7 @@
+/* */ 
+"format cjs";
+import { Observable } from '../../Observable';
+import { scan } from '../../operator/scan';
+Observable.prototype.scan = scan;
+export var _void;
+//# sourceMappingURL=scan.js.map

@@ -1,0 +1,7 @@
+/* */ 
+"format cjs";
+import { Observable } from '../../Observable';
+import { windowCount } from '../../operator/windowCount';
+Observable.prototype.windowCount = windowCount;
+export var _void;
+//# sourceMappingURL=windowCount.js.map
